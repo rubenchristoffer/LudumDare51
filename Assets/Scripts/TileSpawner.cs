@@ -6,10 +6,11 @@ public class TileSpawner : MonoBehaviour
 {
     public GameObject bottomTilePrefab;
     public GameObject fullTilePrefab;
+    public GameObject spookyTilePrefab;
     public const float tileSize = 1;
     public int width;
     public int height;  
-    private List<TileSet> tilesets = new List<TileSet>();
+    public List<Tile> tiles = new List<Tile> (); 
     public static TileSpawner Instance { get; private set; }
 
     private void Awake()
@@ -19,16 +20,13 @@ public class TileSpawner : MonoBehaviour
     void Start()
     {
         TileSet.CreateTileset(new Vector2(0,0));
-        TileSet.CreateTileset(new Vector2(2,0));
-        TileSet.CreateTileset(new Vector2(4,0));
-        TileSet.CreateTileset(new Vector2(4,2));
-        TileSet.CreateTileset(new Vector2(2,-2));
     }
 
     public Tile CreateTile(GameObject prefab, Vector2 coordinates)
     {
         Tile tile = Instantiate<GameObject>(prefab, GetWorldPosition(coordinates), Quaternion.identity).GetComponent<Tile>();
         tile.coordinates = coordinates;
+        tiles.Add(tile);
         return tile;
     }
 
