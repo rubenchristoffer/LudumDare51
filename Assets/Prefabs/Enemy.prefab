@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 36304669957448974}
   - component: {fileID: 36304669957448973}
   - component: {fileID: 36304669957448975}
+  - component: {fileID: 6499050391657646620}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -100,3 +101,19 @@ MonoBehaviour:
   stopOffset: 2
   minStopOffsetRecalculationTime: 1
   maxStopOffsetRecalculationTime: 1.5
+--- !u!114 &6499050391657646620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36304669957448972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134e9229843d8e013a12049be3719d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerEntity: {fileID: 0}
+  attackDamage: 10
+  attackDistance: 2
+  attackCooldownTime: 1

@@ -24,7 +24,10 @@ public class EnemySpawner : MonoBehaviour {
         float spawnRadius = Random.Range(minSpawnRadius, maxSpawnRadius);
 
         GameObject enemy = Instantiate<GameObject>(enemyPrefab, player.position + Random.onUnitSphere * spawnRadius, Quaternion.identity);
+
+        // Initialize spawned enemy
         enemy.GetComponent<EnemyMovement>().target = player;
+        enemy.GetComponent<EnemyCombat>().playerEntity = player.GetComponent<Entity>();
     }
 
 }
