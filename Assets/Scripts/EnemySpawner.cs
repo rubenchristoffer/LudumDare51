@@ -6,15 +6,17 @@ public class EnemySpawner : MonoBehaviour {
 
     public static EnemySpawner Instance { get; private set; }
 
-    public Transform player;
     public GameObject enemyPrefab;
 
     public float minSpawnRadius = 15f;
     public float maxSpawnRadius = 30f;
 
+    private Transform player;
+
     void Awake ()
     {
         Instance = this;
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     public void SpawnEnemy ()
