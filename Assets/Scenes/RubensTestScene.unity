@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 1227178659}
   m_Layer: 0
   m_Name: TestPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c10eea8c98812f7945f7f3b1e08925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1227178658}
   enemyPrefab: {fileID: 36304669957448972, guid: c016ec9b0147309f8acc26e66e5efefe, type: 3}
   minSpawnRadius: 10
   maxSpawnRadius: 15
