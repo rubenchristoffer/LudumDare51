@@ -17,21 +17,45 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 currentStopOffset;
     private float currentStopOffsetTimer;
 
-    void Update ()
-    {
-        Vector3 targetDirection = (target.position - transform.position).normalized;
+    private Animator animator;
 
-        if (currentStopOffsetTimer < 0f)
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        GetComponent<Entity>().onDie.AddListener(() => animator.SetTrigger("Death"));
+    }
+    void Update()
+    {
+        
+        AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
+        if (animationState.IsName("Attack") && animationState.normalizedTime < 1)
         {
-            currentStopOffset = stopOffset * Random.onUnitSphere;
-            currentStopOffsetTimer = Random.Range(minStopOffsetRecalculationTime, maxStopOffsetRecalculationTime);
-        } 
+        }
+        else if (animationState.IsName("Death") )
+        {
+            if (animationState.normalizedTime > 1)
+            {
+                Object.Destroy(gameObject);
+            }
+        
+        }
         else
         {
-            currentStopOffsetTimer -= Time.deltaTime;
+            Vector3 targetDirection = (target.position - transform.position).normalized;
+
+            if (currentStopOffsetTimer < 0f)
+            {
+                currentStopOffset = stopOffset * Random.onUnitSphere;
+                currentStopOffsetTimer = Random.Range(minStopOffsetRecalculationTime, maxStopOffsetRecalculationTime);
+            }
+            else
+            {
+                currentStopOffsetTimer -= Time.deltaTime;
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, target.position - currentStopOffset, Time.deltaTime * speed);
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position - currentStopOffset, Time.deltaTime * speed);
     }
-
 }

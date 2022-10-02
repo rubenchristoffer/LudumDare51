@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 5442f87677a9cfb41a9429de2c3955bc
+guid: 8a783ba716121fc4abcebb00d543054e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2725355063162314475
-    second: walk_animation_sheet_0
+      213: 3743957659742367504
+    second: Move_0
   - first:
-      213: 7926374424836866409
-    second: walk_animation_sheet_1
+      213: 8405476814967859603
+    second: Move_1
   - first:
-      213: -7814099193375478538
-    second: walk_animation_sheet_2
+      213: -5086530901905536447
+    second: Move_2
   - first:
-      213: -4943149979446947951
-    second: walk_animation_sheet_3
+      213: 1521079245874940812
+    second: Move_3
   - first:
-      213: 2635242317063856950
-    second: walk_animation_sheet_4
+      213: 4010896587680814743
+    second: Move_4
   - first:
-      213: -194299243733384211
-    second: walk_animation_sheet_5
+      213: 8831429847189535439
+    second: Move_5
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -64,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk_animation_sheet_0
+      name: Move_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 511e56572089d2ad0800000000000000
-      internalID: -2725355063162314475
+      spriteID: 01feb0bb7a535f330800000000000000
+      internalID: 3743957659742367504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_animation_sheet_1
+      name: Move_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 961842d2b83200e60800000000000000
-      internalID: 7926374424836866409
+      spriteID: 399e0fb01a046a470800000000000000
+      internalID: 8405476814967859603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_animation_sheet_2
+      name: Move_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fc203b3f2ebe8390800000000000000
-      internalID: -7814099193375478538
+      spriteID: 14a8fd428130969b0800000000000000
+      internalID: -5086530901905536447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_animation_sheet_3
+      name: Move_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19fc59b9847666bb0800000000000000
-      internalID: -4943149979446947951
+      spriteID: c8b489dd385fb1510800000000000000
+      internalID: 1521079245874940812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_animation_sheet_4
+      name: Move_4
       rect:
         serializedVersion: 2
         x: 128
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6332baddce2429420800000000000000
-      internalID: 2635242317063856950
+      spriteID: 7969a83223199a730800000000000000
+      internalID: 4010896587680814743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_animation_sheet_5
+      name: Move_5
       rect:
         serializedVersion: 2
         x: 160
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de305250ed5bd4df0800000000000000
-      internalID: -194299243733384211
+      spriteID: fcab384b7aa8f8a70800000000000000
+      internalID: 8831429847189535439
       vertices: []
       indices: 
       edges: []
