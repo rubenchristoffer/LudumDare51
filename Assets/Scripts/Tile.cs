@@ -16,6 +16,21 @@ public class Tile: MonoBehaviour
     public bool isSpooky = false;
     public bool isInteractable = false;
 
+    public float speed;
+    public Vector3 startPosition;
+    public float randomCoefficient;
+
+    private void Start()
+    {
+        speed = 45f;
+        transform.position += new Vector3(0, 20, 0);
+    }
+    private void Update()
+    {
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(coordinates.x, coordinates.y, 0), step);
+    }
+
 
     public void Interact()
     {
@@ -32,7 +47,6 @@ public class Tile: MonoBehaviour
         };
         if (TileSet.DoesTileExist(location))
         {
-            Debug.Log("Tile exists"); 
             return;
         }
         TileSet.CreateTileset(location);
