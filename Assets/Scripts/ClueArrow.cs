@@ -4,24 +4,15 @@ using UnityEngine;
 
 public class ClueArrow : MonoBehaviour
 {
-    // Start is called before the first frame update
 
-    public Transform target;
-    void Start()
-    {
-        target = GameObject.FindGameObjectWithTag("Target").transform;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        PointToTarget(target);
-        
+        PointToTarget(TileSet.escapeTileCenterCoordinates);
     }
-    void PointToTarget(Transform target)
+    void PointToTarget(Vector3 target)
     {
-        float angle = Vector2.Angle(transform.position, target.position);
-        Vector2 relative = target.position - transform.position;
+        float angle = Vector2.Angle(transform.position, target);
+        Vector2 relative = target - transform.position;
         angle = Mathf.Atan2(relative.y, relative.x) * 180 / Mathf.PI;
         
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, angle);
