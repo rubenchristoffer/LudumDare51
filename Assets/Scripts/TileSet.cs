@@ -25,7 +25,7 @@ public class TileSet
     public static bool DoesTileExist(Vector2 coordinates)
     {
         bool found = GetTile(coordinates) != null;
-        if (found) Debug.Log($"did not find tiles at: {coordinates}");
+        
         return found;
     }
 

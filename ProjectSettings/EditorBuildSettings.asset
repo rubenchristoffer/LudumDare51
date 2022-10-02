@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneLoader.unity
     guid: 76c984db710fd93d390bdd8e83017e16
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Game.unity
+    guid: 126a7953de7279fa997581828a18420a
   - enabled: 1
     path: Assets/Scenes/Singletons.unity
     guid: 2b2dcf0a2d356f8638e74672e341f705
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/RubensTestScene.unity
     guid: 84c687f82b9b6d2c5aedf113bb7aad5c
