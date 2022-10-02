@@ -9,12 +9,29 @@ using UnityEngine;
 public class Tile: MonoBehaviour
 {
     public Vector2 coordinates;
-    public GameObject prefab;
+    GameObject prefab;
     public Direction? direction;
 
 
-    public bool isSpooky = false;
+    bool isSpooky = false;
     public bool isInteractable = false;
+
+    public float speed;
+    Vector3 startPosition;
+    float randomCoefficient;
+    Vector3 positionV;
+
+    private void Start()
+    {
+        speed = 0.1f;
+        transform.position += new Vector3(0, -20, 0);
+        randomCoefficient = UnityEngine.Random.Range(.04f, 0.055f);
+    }
+    private void Update()
+    {
+        float step = speed * randomCoefficient;
+        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(coordinates.x, coordinates.y, 0), ref positionV, randomCoefficient);
+    }
 
 
     public void Interact()
@@ -32,7 +49,6 @@ public class Tile: MonoBehaviour
         };
         if (TileSet.DoesTileExist(location))
         {
-            Debug.Log("Tile exists"); 
             return;
         }
         TileSet.CreateTileset(location);

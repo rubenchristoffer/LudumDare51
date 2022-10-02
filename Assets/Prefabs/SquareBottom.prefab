@@ -99,3 +99,6 @@ MonoBehaviour:
   prefab: {fileID: 0}
   isSpooky: 0
   isInteractable: 0
+  speed: 0
+  startPosition: {x: 0, y: 0, z: 0}
+  randomCoefficient: 0
