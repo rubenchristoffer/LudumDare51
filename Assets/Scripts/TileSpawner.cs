@@ -7,6 +7,9 @@ public class TileSpawner : MonoBehaviour
     public GameObject bottomTilePrefab;
     [SerializeField]
     public WeightedPrefab[] fullTilePrefab;
+
+    public GameObject[] escapeTilePrefabs;
+
     [System.Serializable]
     public struct WeightedPrefab
     {
@@ -35,6 +38,13 @@ public class TileSpawner : MonoBehaviour
     }
     void Start()
     {
+        // Calculate escape tile coordinates
+        float distanceFromSpawn = Random.Range(8f, 10f) * 3f;
+        Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+
+        TileSet.escapeTileCenterCoordinates = direction * distanceFromSpawn;
+        TileSet.escapeTileCenterCoordinates = new Vector2(Mathf.Floor(TileSet.escapeTileCenterCoordinates.x), Mathf.Floor(TileSet.escapeTileCenterCoordinates.y)) * 3;
+
         TileSet.CreateTileset(new Vector2(0,0));
     }
 
@@ -56,12 +66,23 @@ public class TileSpawner : MonoBehaviour
                 break;
 
         }
+        
+        return InstantiateTile(prefab, coordinates, variation);
+    }
+
+    private Tile InstantiateTile (GameObject prefab, Vector2 coordinates, Tile.TileVariation variation)
+    {
         Tile tile = Instantiate<GameObject>(prefab, GetWorldPosition(coordinates), Quaternion.identity).GetComponent<Tile>();
         tile.transform.SetParent(MapParent);
         tile.tileVariation = variation;
         tile.coordinates = coordinates;
         tiles.Add(tile);
         return tile;
+    }
+
+    public Tile CreateEscapeTile (Vector2 coordinates, int prefabNumber)
+    {
+        return InstantiateTile(escapeTilePrefabs[prefabNumber], coordinates, Tile.TileVariation.escape);
     }
 
     public static Vector3 GetWorldPosition(Vector2 coordinates)

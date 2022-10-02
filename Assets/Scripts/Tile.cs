@@ -15,7 +15,8 @@ public class Tile: MonoBehaviour
     {
         spooky,
         full,
-        bottom
+        bottom,
+        escape
     }
 
     public TileVariation tileVariation;

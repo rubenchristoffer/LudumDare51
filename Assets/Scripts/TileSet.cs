@@ -7,13 +7,14 @@ using UnityEngine;
 
 public class TileSet
 {
+
     public List<Tile> tiles = new List<Tile>();
     public Vector2 centerCoordinates;
     public const float width = 3;
     public const float height = 3;
 
+    public static Vector2 escapeTileCenterCoordinates;
 
-    
     public static Tile GetTile(Vector2 coordinates)
     {
         foreach (Tile tile in TileSpawner.Instance.tiles)
@@ -56,6 +57,8 @@ public class TileSet
         tileset.centerCoordinates = centerCoordinates;
         int range = 1;
         int heightRange = 1;
+        int createdTiles = 0;
+
         for (int x = -range; x <= range; x++)
             for (int y = -heightRange; y <= heightRange; y++)
             {
@@ -70,7 +73,13 @@ public class TileSet
                 }
                 Tile tileBelow = GetTile(new Vector2(newX, newY - 1));
                 prefab = (tileBelow == null) ? Tile.TileVariation.bottom : Tile.TileVariation.full;
-                tile = TileSpawner.Instance.CreateTile(prefab, new Vector2(newX, newY));
+
+                if ((escapeTileCenterCoordinates - centerCoordinates).sqrMagnitude < 0.1f) {
+                    tile = TileSpawner.Instance.CreateEscapeTile(new Vector2(newX, newY), createdTiles);
+                } else {
+                    tile = TileSpawner.Instance.CreateTile(prefab, new Vector2(newX, newY));
+                }
+
                 if (x == 0 && y == 1)
                 {
                     tile.direction = Direction.Top;
@@ -91,6 +100,8 @@ public class TileSet
                     tile.direction = Direction.Left;
                     tile.isInteractable = true;
                 }
+
+                createdTiles++;
                 tileset.tiles.Add(tile);
             } 
         CreateSpookyBarrier(centerCoordinates, range, heightRange);
