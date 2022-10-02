@@ -19,16 +19,26 @@ public class EnemyMovement : MonoBehaviour
 
     private Animator animator;
 
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        GetComponent<Entity>().onDie.AddListener(() => animator.SetTrigger("Death"));
     }
     void Update()
     {
+        
         AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
         if (animationState.IsName("Attack") && animationState.normalizedTime < 1)
         {
-            Debug.Log("is currently attacking");
+        }
+        else if (animationState.IsName("Death") )
+        {
+            if (animationState.normalizedTime > 1)
+            {
+                Object.Destroy(gameObject);
+            }
+        
         }
         else
         {

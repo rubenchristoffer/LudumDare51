@@ -8,7 +8,7 @@ public class EnemyCombat : MonoBehaviour
     public Entity playerEntity;
 
     public float attackDamage = 10f;
-    public float attackDistance = .5f;
+    public float attackDistance = .045f;
     public float attackCooldownTime = 2f;
 
     private float cooldownTimeLeft;
