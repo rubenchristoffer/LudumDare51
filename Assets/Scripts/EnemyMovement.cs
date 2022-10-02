@@ -17,21 +17,35 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 currentStopOffset;
     private float currentStopOffsetTimer;
 
-    void Update ()
-    {
-        Vector3 targetDirection = (target.position - transform.position).normalized;
+    private Animator animator;
 
-        if (currentStopOffsetTimer < 0f)
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+    void Update()
+    {
+        AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
+        if (animationState.IsName("Attack") && animationState.normalizedTime < 1)
         {
-            currentStopOffset = stopOffset * Random.onUnitSphere;
-            currentStopOffsetTimer = Random.Range(minStopOffsetRecalculationTime, maxStopOffsetRecalculationTime);
-        } 
+            Debug.Log("is currently attacking");
+        }
         else
         {
-            currentStopOffsetTimer -= Time.deltaTime;
+            Vector3 targetDirection = (target.position - transform.position).normalized;
+
+            if (currentStopOffsetTimer < 0f)
+            {
+                currentStopOffset = stopOffset * Random.onUnitSphere;
+                currentStopOffsetTimer = Random.Range(minStopOffsetRecalculationTime, maxStopOffsetRecalculationTime);
+            }
+            else
+            {
+                currentStopOffsetTimer -= Time.deltaTime;
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, target.position - currentStopOffset, Time.deltaTime * speed);
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position - currentStopOffset, Time.deltaTime * speed);
     }
-
 }
