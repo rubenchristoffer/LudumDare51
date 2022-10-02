@@ -31,10 +31,8 @@ public class EnemyCombat : MonoBehaviour
             {
                 cooldownTimeLeft = attackCooldownTime;
                 animator.SetTrigger("Attack");
-                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-                {
-                }
-                else
+                AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
+                if (animationState.normalizedTime < 1 && animationState.IsName("Attack"))
                 {
                     if (HitAttack()) playerEntity.InflictDamage(attackDamage);
                 }

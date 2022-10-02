@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
+  tileVariation: 0
   isInteractable: 0
 --- !u!61 &10194467136199569
 BoxCollider2D:
@@ -269,8 +270,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5898653567260144c8894d9532d5eb49, type: 3}
+--- !u!1 &5894326229536434921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6610198236912274111, guid: 5898653567260144c8894d9532d5eb49, type: 3}
+  m_PrefabInstance: {fileID: 752380687593021526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7236808666422107111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7934974327531142065, guid: 5898653567260144c8894d9532d5eb49, type: 3}
   m_PrefabInstance: {fileID: 752380687593021526}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &219745605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5894326229536434921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9891a1b9b6f87c74cbe175e86031faa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
