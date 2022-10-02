@@ -12,24 +12,27 @@ public class Tile: MonoBehaviour
     GameObject prefab;
     public Direction? direction;
 
+    public enum TileVariation
+    {
+        spooky,
+        full,
+        bottom
+    }
 
     bool isSpooky = false;
     public bool isInteractable = false;
 
-    public float speed;
     Vector3 startPosition;
     float randomCoefficient;
     Vector3 positionV;
 
     private void Start()
     {
-        speed = 0.1f;
         transform.position += new Vector3(0, -20, 0);
         randomCoefficient = UnityEngine.Random.Range(.04f, 0.055f);
     }
     private void Update()
     {
-        float step = speed * randomCoefficient;
         transform.position = Vector3.SmoothDamp(transform.position, new Vector3(coordinates.x, coordinates.y, 0), ref positionV, randomCoefficient);
     }
 

@@ -32,7 +32,7 @@ public class TileSet
     public static void CreateSpookyBarrier(Vector2 centerCoordinates, int range, int heightRange)
     {
         Vector2 evalutingCoordinates;
-        GameObject prefab = TileSpawner.Instance.spookyTilePrefab;
+        Tile.TileVariation prefab = Tile.TileVariation.spooky;
         for (int x = -range-1; x <= range+1; x++)
         {
             evalutingCoordinates = new Vector2(centerCoordinates.x + x, centerCoordinates.y - heightRange - 1);
@@ -52,7 +52,7 @@ public class TileSet
     public static TileSet CreateTileset(Vector2 centerCoordinates)
     {
         TileSet tileset = new TileSet();
-        GameObject prefab;
+        Tile.TileVariation prefab;
         tileset.centerCoordinates = centerCoordinates;
         int range = 1;
         int heightRange = 1;
@@ -69,7 +69,7 @@ public class TileSet
                     UnityEngine.Object.Destroy(tile.gameObject);
                 }
                 Tile tileBelow = GetTile(new Vector2(newX, newY - 1));
-                prefab = (tileBelow == null) ? TileSpawner.Instance.bottomTilePrefab : TileSpawner.Instance.fullTilePrefab;
+                prefab = (tileBelow == null) ? Tile.TileVariation.bottom : Tile.TileVariation.full;
                 tile = TileSpawner.Instance.CreateTile(prefab, new Vector2(newX, newY));
                 if (x == 0 && y == 1)
                 {
