@@ -16,6 +16,8 @@ public class Entity : MonoBehaviour {
     public readonly UnityEvent<float> onInflictedDamage = new UnityEvent<float>();
     public readonly UnityEvent onDie = new UnityEvent();
 
+    public Direction lookDirection { get; set; }
+
     public void InflictDamage(float damage)
     {
         if (isDead)
@@ -42,6 +44,17 @@ public class Entity : MonoBehaviour {
         health = 0;
         isDead = true;
         onDie.Invoke();
+    }
+
+    public Vector3 GetLookDirectionVector () {
+        switch (lookDirection) {
+            case Direction.Top: return transform.up;
+            case Direction.Bottom: return -transform.up;
+            case Direction.Right: return transform.right;
+            case Direction.Left: return -transform.right;
+        }
+
+        return Vector3.zero;
     }
 
 }
