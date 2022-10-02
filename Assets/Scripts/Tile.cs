@@ -9,7 +9,6 @@ using UnityEngine;
 public class Tile: MonoBehaviour
 {
     public Vector2 coordinates;
-    GameObject prefab;
     public Direction? direction;
 
     public enum TileVariation
@@ -19,21 +18,30 @@ public class Tile: MonoBehaviour
         bottom
     }
 
-    bool isSpooky = false;
+    public TileVariation tileVariation;
     public bool isInteractable = false;
 
-    Vector3 startPosition;
     float randomCoefficient;
     Vector3 positionV;
+    Transform? target;
 
     private void Start()
     {
         transform.position += new Vector3(0, -20, 0);
         randomCoefficient = UnityEngine.Random.Range(.04f, 0.055f);
+
     }
     private void Update()
     {
         transform.position = Vector3.SmoothDamp(transform.position, new Vector3(coordinates.x, coordinates.y, 0), ref positionV, randomCoefficient);
+        
+    }
+
+    void PointToTarget(Transform target)
+    {
+        Vector3 relative = transform.InverseTransformPoint(target.position);
+        float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
+        transform.Rotate(0, 0, angle);
     }
 
 

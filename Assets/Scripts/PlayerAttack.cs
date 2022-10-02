@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (attackCooldownTimeLeft < 0f)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Space))
             {
                 attackCooldownTimeLeft = attackCooldown;
                 Attack();
@@ -44,7 +44,7 @@ public class PlayerAttack : MonoBehaviour
 
         var entities = hits
             .Select(hit => hit.transform.GetComponentInParent<Entity>())
-            .Where(entity => entity != null)
+            .Where(entity => entity != null && entity != playerEntity)
             .Distinct();
 
         foreach (Entity entity in entities)

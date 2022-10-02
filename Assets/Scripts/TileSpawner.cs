@@ -58,6 +58,7 @@ public class TileSpawner : MonoBehaviour
         }
         Tile tile = Instantiate<GameObject>(prefab, GetWorldPosition(coordinates), Quaternion.identity).GetComponent<Tile>();
         tile.transform.SetParent(MapParent);
+        tile.tileVariation = variation;
         tile.coordinates = coordinates;
         tiles.Add(tile);
         return tile;
