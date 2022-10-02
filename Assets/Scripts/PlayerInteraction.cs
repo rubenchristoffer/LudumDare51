@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             Vector3Int pos = Vector3Int.RoundToInt(transform.position);
             Tile tile = TileSet.GetTile((Vector3)pos);
