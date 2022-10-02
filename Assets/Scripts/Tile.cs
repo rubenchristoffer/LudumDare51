@@ -49,7 +49,7 @@ public class Tile: MonoBehaviour
     {
         if (!isInteractable) return;
         isInteractable = false;
-        Debug.Log("succesfully attempted interaction");
+        
         int range = 2;
         var location = direction switch
         {

@@ -23,7 +23,7 @@ public class ClueArrow : MonoBehaviour
         float angle = Vector2.Angle(transform.position, target.position);
         Vector2 relative = target.position - transform.position;
         angle = Mathf.Atan2(relative.y, relative.x) * 180 / Mathf.PI;
-        Debug.Log(angle);
+        
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, angle);
     }
 }
