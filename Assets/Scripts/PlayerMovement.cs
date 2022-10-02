@@ -5,9 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public Animator animator;
+    public Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
     void Start()
     {
-        
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();     
     }
 
     void Update()
@@ -17,15 +20,16 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleInputs()
     {
-        this.transform.position += transform.right * Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        this.transform.position += transform.up * Input.GetAxis("Vertical") * Time.deltaTime * speed;
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            Vector3Int pos = Vector3Int.RoundToInt(transform.position);
-            Tile tile = TileSet.GetTile((Vector3)pos);
-            if (tile != null) tile.Interact();
-        }
+        Vector3 velocity = Vector3.zero;
+        Vector3 startPos = transform.position;
+        velocity += transform.right * Input.GetAxis("Horizontal") * speed;
+        velocity += transform.up * Input.GetAxis("Vertical") * speed;
+        rb.velocity = velocity;
+        if (velocity.x < 0) spriteRenderer.flipX = true;
+        else spriteRenderer.flipX = false;
+        animator.SetBool("isWalking", velocity.magnitude > 0);
+
 
     }
 }

@@ -9,26 +9,28 @@ using UnityEngine;
 public class Tile: MonoBehaviour
 {
     public Vector2 coordinates;
-    public GameObject prefab;
+    GameObject prefab;
     public Direction? direction;
 
 
-    public bool isSpooky = false;
+    bool isSpooky = false;
     public bool isInteractable = false;
 
     public float speed;
-    public Vector3 startPosition;
-    public float randomCoefficient;
+    Vector3 startPosition;
+    float randomCoefficient;
+    Vector3 positionV;
 
     private void Start()
     {
-        speed = 45f;
-        transform.position += new Vector3(0, 20, 0);
+        speed = 0.1f;
+        transform.position += new Vector3(0, -20, 0);
+        randomCoefficient = UnityEngine.Random.Range(.04f, 0.055f);
     }
     private void Update()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(coordinates.x, coordinates.y, 0), step);
+        float step = speed * randomCoefficient;
+        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(coordinates.x, coordinates.y, 0), ref positionV, randomCoefficient);
     }
 
 
