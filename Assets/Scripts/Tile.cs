@@ -23,7 +23,6 @@ public class Tile: MonoBehaviour
 
     float randomCoefficient;
     Vector3 positionV;
-    Transform? target;
 
     private void Start()
     {
@@ -37,12 +36,6 @@ public class Tile: MonoBehaviour
         
     }
 
-    void PointToTarget(Transform target)
-    {
-        Vector3 relative = transform.InverseTransformPoint(target.position);
-        float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
-        transform.Rotate(0, 0, angle);
-    }
 
 
     public void Interact()
