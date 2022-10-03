@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 2
-  stopOffset: 2
+  stopOffset: 0.3
   minStopOffsetRecalculationTime: 1
   maxStopOffsetRecalculationTime: 1.5
 --- !u!114 &6499050391657646620
@@ -120,8 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerEntity: {fileID: 0}
   attackDamage: 10
-  attackDistance: 2
-  attackCooldownTime: 1
+  attackDistance: 0.5
+  attackCooldownTime: 2
+  attackDelay: 0.5
 --- !u!95 &715392373
 Animator:
   serializedVersion: 3
