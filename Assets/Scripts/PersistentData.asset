@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8f23a4de23f988d8c9f8c28d0a127a, type: 3}
   m_Name: PersistentData
   m_EditorClassIdentifier: 
-  level: 1
-  enemiesToSpawn: 1
-  cash: 20
-  tenSecondCashBonus: 1
-  playerHealth: 100
+  level: 2
+  enemiesToSpawn: 1.7715611
+  cash: 5005
+  tenSecondCashBonus: 3.5431223
+  playerHealth: 110
