@@ -12,6 +12,7 @@ public class Entity : MonoBehaviour {
     public float maxHealth = 100f;
 
     public bool isDead { get; private set; }
+    public GameObject damageText;
 
     public readonly UnityEvent<float> onInflictedDamage = new UnityEvent<float>();
     public readonly UnityEvent onDie = new UnityEvent();
@@ -20,15 +21,17 @@ public class Entity : MonoBehaviour {
 
     public void InflictDamage(float damage)
     {
+        DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+        indicator.SetDamageText(damage);
+        onInflictedDamage.Invoke(damage);
+
         if (isDead)
         {
             throw new System.InvalidCastException("Cannot inflict damage on dead entity!");
         }
 
         health -= damage;
-
-        onInflictedDamage.Invoke(damage);
-
+       
         if (health <= 0)
         {
             Die();
