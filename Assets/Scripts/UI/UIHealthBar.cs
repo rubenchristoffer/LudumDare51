@@ -19,7 +19,7 @@ public class UIHealthBar : MonoBehaviour
     void Update()
     {
         label.text = Mathf.CeilToInt(playerEntity.health).ToString();
-        greenForeground.fillAmount = playerEntity.health / playerEntity.maxHealth;
+        greenForeground.fillAmount = (float)playerEntity.health / playerEntity.maxHealth;
     }
 
 }

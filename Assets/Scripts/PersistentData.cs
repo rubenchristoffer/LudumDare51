@@ -10,14 +10,14 @@ public class PersistentData : ScriptableObject
     public float enemiesToSpawn = 1;
 
     public int cash = 20;
-    public float tenSecondCashBonus = 1;
+    public float tenSecondCashBonus = 2;
     public float playerHealth = 100;
 
     public void Reset () {
         level = 1;
         enemiesToSpawn = 1;
         cash = 20;
-        tenSecondCashBonus = 1;
+        tenSecondCashBonus = 2;
         playerHealth = 100;
     }
 

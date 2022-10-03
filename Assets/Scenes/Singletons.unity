@@ -156,7 +156,6 @@ MonoBehaviour:
   persistentData: {fileID: 11400000, guid: bbb62302e2ee5432f9d665d81d2b27f6, type: 2}
   minSpawnRadius: 15
   maxSpawnRadius: 30
-  enemiesToSpawn: 1
 --- !u!4 &19402466
 Transform:
   m_ObjectHideFlags: 0
@@ -552,7 +551,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 01956976dbb424d848dd0db188897dc7, type: 3}
-  m_Type: 3
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
