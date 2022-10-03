@@ -14,3 +14,5 @@ This is not very apparent to the player yet is a significant impact on the gamel
 ## Assets etc.
 All assets are made by us, with the exception of sounds, they are generated with a randomizer found online.
 
+## ⚠️ Code quality
+This is a game jam. Therefore speed was (significantly) prioritized over quality. In other words, a lot of our source code is 🍝. 
