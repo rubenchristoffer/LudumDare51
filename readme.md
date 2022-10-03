@@ -11,4 +11,4 @@ Itch.io: [https://joonsey.itch.io/tile-crawler](https://joonsey.itch.io/tile-cra
 All assets are made by us, with the exception of sounds that were generated with a randomizer found online (there aren't many sounds though).
 
 ## ⚠️ Code quality
-This is a game jam. Therefore speed was (significantly) prioritized over quality. In other words, a lot of our source code is 🍝. You have been warned. 
+This code is from a game jam. Therefore speed was (significantly) prioritized over quality. In other words, a lot of our source code is 🍝. You have been warned. 
