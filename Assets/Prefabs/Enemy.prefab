@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  damageText: {fileID: 3446532817364005481, guid: 5e3d1b22e7118894b93dea3292939ffa, type: 3}
 --- !u!61 &36193892578046203
 BoxCollider2D:
   m_ObjectHideFlags: 0
