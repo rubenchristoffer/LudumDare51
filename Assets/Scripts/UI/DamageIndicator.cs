@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DamageIndicator : MonoBehaviour
 {
     public Text text;
-    public float lifetime = 0.6f;
+    public float lifetime = 4f;
     public float minDist = 2f;
     public float maxDist = 3f;
 
@@ -16,21 +16,18 @@ public class DamageIndicator : MonoBehaviour
     
     void Start()
     {
-        transform.LookAt(2 * transform.position - Camera.main.transform.position);
-
-        float direction = Random.rotation.eulerAngles.z;
-        iniPos = transform.position;
-        float dist = Random.Range(minDist, maxDist);
-        targetPos = iniPos + (Quaternion.Euler(0, 0, direction) * new Vector3(dist, dist, 0));
-        
     }
 
     void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer > lifetime) Destroy(gameObject);  
-
-        transform.position = Vector3.Lerp(iniPos, targetPos, Mathf.Sin(timer / lifetime));
+    {    
+        lifetime -= Time.deltaTime;  
+        if (lifetime < 0)
+        {
+            Destroy(gameObject);
+        }
+        float inverseLifetime = 1 / lifetime;
+        transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime, 0);
+        
     }
 
     public void SetDamageText(float damage)

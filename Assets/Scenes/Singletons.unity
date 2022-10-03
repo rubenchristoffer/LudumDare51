@@ -155,6 +155,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 36304669957448972, guid: c016ec9b0147309f8acc26e66e5efefe, type: 3}
   minSpawnRadius: 15
   maxSpawnRadius: 30
+  enemiesToSpawn: 1
 --- !u!4 &19402466
 Transform:
   m_ObjectHideFlags: 0
