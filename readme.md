@@ -7,7 +7,7 @@ It's a proceduraly generated "dungeon crawler" where you try to expand your tile
 Official submission: [https://ldjam.com/events/ludum-dare/51/$300374](https://ldjam.com/events/ludum-dare/51/$300374)  
 Itch.io: [https://joonsey.itch.io/tile-crawler](https://joonsey.itch.io/tile-crawler)  
 
-## Assets etc.
+## Assets
 All assets are made by us, with the exception of sounds that were generated with a randomizer found online (there aren't many sounds though).
 
 ## ⚠️ Code quality
