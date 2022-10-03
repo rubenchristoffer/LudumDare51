@@ -22,6 +22,8 @@ public class EscapePortal : MonoBehaviour
         if (Vector3.Distance(transform.position, player.position) < 1f) {
             persistentData.level++;
             persistentData.playerHealth *= 1.1f;
+            persistentData.playerHealth = Mathf.Clamp(persistentData.playerHealth, 0f, 2000000000);
+
             persistentData.cash += 50;
             SceneManager.LoadScene("SceneLoader", LoadSceneMode.Single);
         }
