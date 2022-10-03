@@ -11,6 +11,9 @@ public class Entity : MonoBehaviour {
     [Min(0f)]
     public int maxHealth = 100;
 
+    public AudioSource deathSound;
+    public AudioSource damageSound;
+
     public bool isDead { get; private set; }
     public GameObject damageText;
 
@@ -35,6 +38,8 @@ public class Entity : MonoBehaviour {
         if (health <= 0)
         {
             Die();
+        } else {
+            damageSound?.Play();
         }
     }
 
@@ -48,6 +53,7 @@ public class Entity : MonoBehaviour {
         health = 0;
         isDead = true;
         onDie.Invoke();
+        deathSound?.Play();
     }
 
     public Vector3 GetLookDirectionVector () {
