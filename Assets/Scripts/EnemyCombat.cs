@@ -34,7 +34,7 @@ public class EnemyCombat : MonoBehaviour
                 AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
                 if (animationState.normalizedTime < 1 && animationState.IsName("Attack"))
                 {
-                    if (HitAttack()) playerEntity.InflictDamage(attackDamage);
+                    if (HitAttack()) playerEntity.InflictDamage(Mathf.FloorToInt(attackDamage));
                 }
             }
             else

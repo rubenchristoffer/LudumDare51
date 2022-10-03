@@ -11,19 +11,23 @@ public class PlayerResources : MonoBehaviour
 
     public int baseCashBonus = 1;
     public float cashBonusIncreaseMultiplier = 1.1f;
+    public PersistentData persistentData;
 
-    public float tenSecondCashBonus;
-
-    public int cash { get; private set; }
+    public int cash {
+        get => persistentData.cash;
+        set => persistentData.cash = value;
+    }
 
     void Start()
     {
-        tenSecondCashBonus = baseCashBonus;
+        if (persistentData.tenSecondCashBonus < 1) {
+            persistentData.tenSecondCashBonus = 1f;
+        }
 
         TenSecondCycle.Instance.onCycleTick.AddListener(() => {
-            AddCash(Mathf.FloorToInt(tenSecondCashBonus));
+            AddCash(Mathf.FloorToInt(persistentData.tenSecondCashBonus));
 
-            tenSecondCashBonus *= cashBonusIncreaseMultiplier;
+            persistentData.tenSecondCashBonus *= cashBonusIncreaseMultiplier;
         });
     }
 
@@ -34,7 +38,7 @@ public class PlayerResources : MonoBehaviour
 
     public void RemoveCash (int cashToRemove) {
         cash -= cashToRemove;
-        onCashChanged.Invoke(cash, cashToRemove);
+        onCashChanged.Invoke(cash, -cashToRemove);
     }
 
 }

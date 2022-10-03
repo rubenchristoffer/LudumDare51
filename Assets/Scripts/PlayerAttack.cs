@@ -49,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (Entity entity in entities)
         {
-            entity.InflictDamage(attackDamage);
+            entity.InflictDamage(Mathf.FloorToInt(attackDamage));
         }
     }
 
