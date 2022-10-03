@@ -8,7 +8,7 @@ Official submission: [https://ldjam.com/events/ludum-dare/51/$300374](https://ld
 Itch.io: [https://joonsey.itch.io/tile-crawler](https://joonsey.itch.io/tile-crawler)  
 
 ## Assets etc.
-All assets are made by us, with the exception of sounds (there aren't many sounds though) that were generated with a randomizer found online.
+All assets are made by us, with the exception of sounds that were generated with a randomizer found online (there aren't many sounds though).
 
 ## ⚠️ Code quality
 This is a game jam. Therefore speed was (significantly) prioritized over quality. In other words, a lot of our source code is 🍝. You have been warned. 
