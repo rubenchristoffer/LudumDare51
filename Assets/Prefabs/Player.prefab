@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 7587832667340819639}
   - component: {fileID: 392835528171858043}
   - component: {fileID: 2802067541532340314}
+  - component: {fileID: 8421800736479400489}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -237,6 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  damageText: {fileID: 0}
 --- !u!114 &7587832667340819659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,4 +343,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCashBonus: 1
   cashBonusIncreaseMultiplier: 1.1
-  tenSecondCashBonus: 0
+  persistentData: {fileID: 11400000, guid: bbb62302e2ee5432f9d665d81d2b27f6, type: 2}
+--- !u!114 &8421800736479400489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587832667340819661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee91bbcf6659b2a2864d13e91bcf2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  persistentData: {fileID: 11400000, guid: bbb62302e2ee5432f9d665d81d2b27f6, type: 2}

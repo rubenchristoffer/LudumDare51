@@ -6,10 +6,10 @@ using UnityEngine.Events;
 public class Entity : MonoBehaviour {
 
     [Min(0f)]
-    public float health = 100f;
+    public int health = 100;
 
     [Min(0f)]
-    public float maxHealth = 100f;
+    public int maxHealth = 100;
 
     public bool isDead { get; private set; }
     public GameObject damageText;
@@ -19,7 +19,7 @@ public class Entity : MonoBehaviour {
 
     public Direction lookDirection { get; set; }
 
-    public void InflictDamage(float damage)
+    public void InflictDamage(int damage)
     {
         DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
         indicator.SetDamageText(damage);
