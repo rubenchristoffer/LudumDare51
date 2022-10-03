@@ -1,4 +1,4 @@
-# LudumDare 51
+# TileCrawler - LudumDare 51
 Our submition to the 51st Ludum Dare game jam!
 
 It's a proceduraly generated "dungeon crawler" where you try to expand your tiles to find the exit. 
