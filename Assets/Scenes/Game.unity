@@ -161,7 +161,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -408,15 +408,16 @@ MonoBehaviour:
   - prefab: {fileID: 4225696406588042611, guid: fe515db06c4ec964496141409fea44bd, type: 3}
     weight: 1
   escapeTilePrefabs:
-  - {fileID: 1754162224744306356, guid: 6f04731300671054bb3428c19bf315be, type: 3}
-  - {fileID: 1754162224744306356, guid: 6f04731300671054bb3428c19bf315be, type: 3}
-  - {fileID: 1754162224744306356, guid: 6f04731300671054bb3428c19bf315be, type: 3}
-  - {fileID: 1754162224744306356, guid: 6f04731300671054bb3428c19bf315be, type: 3}
-  - {fileID: 1754162224744306356, guid: 6f04731300671054bb3428c19bf315be, type: 3}
-  - {fileID: 1754162224744306356, guid: 6f04731300671054bb3428c19bf315be, type: 3}
-  - {fileID: 1754162224744306356, guid: 6f04731300671054bb3428c19bf315be, type: 3}
-  - {fileID: 1754162224744306356, guid: 6f04731300671054bb3428c19bf315be, type: 3}
-  - {fileID: 1754162224744306356, guid: 6f04731300671054bb3428c19bf315be, type: 3}
+  - {fileID: 4010192984611146248, guid: 378f402a619792c40a5c6edbf9f2cc84, type: 3}
+  - {fileID: 4010192984611146248, guid: 378f402a619792c40a5c6edbf9f2cc84, type: 3}
+  - {fileID: 4010192984611146248, guid: 378f402a619792c40a5c6edbf9f2cc84, type: 3}
+  - {fileID: 4010192984611146248, guid: 378f402a619792c40a5c6edbf9f2cc84, type: 3}
+  - {fileID: 4010192984611146248, guid: 378f402a619792c40a5c6edbf9f2cc84, type: 3}
+  - {fileID: 4010192984611146248, guid: 378f402a619792c40a5c6edbf9f2cc84, type: 3}
+  - {fileID: 4010192984611146248, guid: 378f402a619792c40a5c6edbf9f2cc84, type: 3}
+  - {fileID: 4010192984611146248, guid: 378f402a619792c40a5c6edbf9f2cc84, type: 3}
+  - {fileID: 4010192984611146248, guid: 378f402a619792c40a5c6edbf9f2cc84, type: 3}
+  escapePortalPrefab: {fileID: 868190269306427651, guid: 1e90f9c30792f0048acd8d84cc449907, type: 3}
   spookyTilePrefab: {fileID: 720835206568353570, guid: eee848794d570864eb795b2abf9e5f60, type: 3}
   MapParent: {fileID: 0}
   width: 5

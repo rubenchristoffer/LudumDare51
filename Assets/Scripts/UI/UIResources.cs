@@ -21,7 +21,7 @@ public class UIResources : MonoBehaviour
 
         playerResources.onCashChanged.AddListener((newCash, changeInCash) => {
             bool positive = changeInCash > 0;
-            string symbol = positive ? "+" : "-";
+            string symbol = positive ? "+" : "";
             Color color = positive ? Color.green : Color.red;
             color.a = cashInfluxLabel.color.a;
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -19,11 +20,17 @@ public class PlayerInteraction : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && playerResources.cash >= 1)
         {
             Vector3Int pos = Vector3Int.RoundToInt(transform.position);
-            Tile tile = TileSet.GetTile((Vector3)pos);
+            List<Tile> tiles = new List<Tile>();
 
-            if (tile != null){ 
-                if (tile.Interact()) {
-                    playerResources.RemoveCash(1);    
+            for (int x = -1; x <= 1; x++) {
+                for (int y = -1; y <= 1; y++) {
+                    Tile tile = TileSet.GetTile(new Vector3(pos.x + x, pos.y + y));
+
+                    if (tile != null) {
+                        if (tile.Interact()) {
+                            playerResources.RemoveCash(1);
+                        }
+                    }
                 }
             }
         }

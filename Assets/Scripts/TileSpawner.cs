@@ -9,6 +9,7 @@ public class TileSpawner : MonoBehaviour
     public WeightedPrefab[] fullTilePrefab;
 
     public GameObject[] escapeTilePrefabs;
+    public GameObject escapePortalPrefab;
 
     [System.Serializable]
     public struct WeightedPrefab

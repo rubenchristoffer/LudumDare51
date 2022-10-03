@@ -7,12 +7,12 @@ public class EnemySpawner : MonoBehaviour {
     public static EnemySpawner Instance { get; private set; }
 
     public GameObject enemyPrefab;
+    public PersistentData persistentData;
 
     public float minSpawnRadius = 15f;
     public float maxSpawnRadius = 20f;
 
     private Transform player;
-    public float enemiesToSpawn = 1f;
 
     private const float enemiesToSpawnIncreaseMultiplier = 1.1f;
 
@@ -20,17 +20,21 @@ public class EnemySpawner : MonoBehaviour {
     {
         Instance = this;
         player = GameObject.FindWithTag("Player").transform;
+
+        if (persistentData.enemiesToSpawn < 1f) {
+            persistentData.enemiesToSpawn = 1f;
+        }
     }
 
     void Start ()
     {
         TenSecondCycle.Instance.onCycleTick.AddListener(() => {
-            for (int i = 0; i < Mathf.FloorToInt(enemiesToSpawn); i++) {
+            for (int i = 0; i < Mathf.FloorToInt(persistentData.enemiesToSpawn); i++) {
                 SpawnEnemy();
             }
 
             // Increase enemies that spawn next cycle
-            enemiesToSpawn *= enemiesToSpawnIncreaseMultiplier;
+            persistentData.enemiesToSpawn *= enemiesToSpawnIncreaseMultiplier;
         });
     }
 
