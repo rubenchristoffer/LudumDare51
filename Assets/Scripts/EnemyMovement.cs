@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 2f;
 
     [Tooltip("To prevent enemy from going inside player")]
-    public float stopOffset = 2f;
+    public float stopOffset = 0.3f;
 
     public float minStopOffsetRecalculationTime = 1f;
     public float maxStopOffsetRecalculationTime = 1.5f;

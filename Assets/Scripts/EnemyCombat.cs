@@ -8,8 +8,9 @@ public class EnemyCombat : MonoBehaviour
     public Entity playerEntity;
 
     public float attackDamage = 10f;
-    public float attackDistance = .045f;
+    public float attackDistance = 0.5f;
     public float attackCooldownTime = 2f;
+    public float attackDelay = 0.5f;
 
     private float cooldownTimeLeft;
     private Animator animator;
@@ -18,28 +19,29 @@ public class EnemyCombat : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    bool HitAttack()
+    bool IsWithinAttackDistance()
     {
         // check where the enemy has hit and validate if it has hit the player
         return (Vector3.Distance(transform.position, playerEntity.transform.position) <= attackDistance);
     }
+
+    IEnumerator Attack () {
+        yield return new WaitForSeconds(attackDelay);
+
+        if (IsWithinAttackDistance()) {
+            playerEntity.InflictDamage(Mathf.FloorToInt(attackDamage));
+        }
+    }
+
     void Update()
     {
-        if (Vector3.Distance(transform.position, playerEntity.transform.position) <= attackDistance)
-        {
-            if (cooldownTimeLeft < 0f)
-            {
+        if (cooldownTimeLeft > 0f) {
+            cooldownTimeLeft -= Time.deltaTime;
+        } else {
+            if (IsWithinAttackDistance()) {
                 cooldownTimeLeft = attackCooldownTime;
                 animator.SetTrigger("Attack");
-                AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
-                if (animationState.normalizedTime < 1 && animationState.IsName("Attack"))
-                {
-                    if (HitAttack()) playerEntity.InflictDamage(Mathf.FloorToInt(attackDamage));
-                }
-            }
-            else
-            {
-                cooldownTimeLeft -= Time.deltaTime;
+                StartCoroutine(Attack());
             }
         }
     }
