@@ -22,7 +22,7 @@ public class Entity : MonoBehaviour {
     {
         if (isDead)
         {
-            throw new System.InvalidCastException("Cannot inflict damage on dead entity!");
+            return;
         }
 
         health -= damage;
@@ -35,10 +35,11 @@ public class Entity : MonoBehaviour {
         }
     }
 
-    public void Die() {
+    public void Die()
+    {
         if (isDead)
         {
-            throw new System.InvalidOperationException("Entity is already dead!");
+            return;
         }
 
         health = 0;
