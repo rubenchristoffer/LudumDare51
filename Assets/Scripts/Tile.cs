@@ -39,9 +39,9 @@ public class Tile: MonoBehaviour
 
 
 
-    public void Interact()
+    public bool Interact()
     {
-        if (!isInteractable) return;
+        if (!isInteractable) return false;
         isInteractable = false;
         
         int range = 2;
@@ -54,8 +54,10 @@ public class Tile: MonoBehaviour
         };
         if (TileSet.DoesTileExist(location))
         {
-            return;
+            return false;
         }
         TileSet.CreateTileset(location);
+
+        return true;
     }
 }

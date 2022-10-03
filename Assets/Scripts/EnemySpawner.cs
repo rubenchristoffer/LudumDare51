@@ -9,14 +9,29 @@ public class EnemySpawner : MonoBehaviour {
     public GameObject enemyPrefab;
 
     public float minSpawnRadius = 15f;
-    public float maxSpawnRadius = 30f;
+    public float maxSpawnRadius = 20f;
 
     private Transform player;
+    public float enemiesToSpawn = 1f;
+
+    private const float enemiesToSpawnIncreaseMultiplier = 1.1f;
 
     void Awake ()
     {
         Instance = this;
         player = GameObject.FindWithTag("Player").transform;
+    }
+
+    void Start ()
+    {
+        TenSecondCycle.Instance.onCycleTick.AddListener(() => {
+            for (int i = 0; i < Mathf.FloorToInt(enemiesToSpawn); i++) {
+                SpawnEnemy();
+            }
+
+            // Increase enemies that spawn next cycle
+            enemiesToSpawn *= enemiesToSpawnIncreaseMultiplier;
+        });
     }
 
     public void SpawnEnemy ()
