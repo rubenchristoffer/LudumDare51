@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 868190269306427678}
   - component: {fileID: 868190269306427677}
   - component: {fileID: 868190269306427676}
+  - component: {fileID: 3309650446538450289}
   m_Layer: 0
   m_Name: PortalSingle
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Animator:
   m_GameObject: {fileID: 868190269306427651}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1cc38da1142a77c4f9624cdca088936a, type: 2}
+  m_Controller: {fileID: 9100000, guid: e0eceb0c6fcf16a5193207ab496a5e7f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -102,3 +103,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3309650446538450289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868190269306427651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f990d003ac1b6748acd6825b81fb033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coordinates: {x: 0, y: 0}
+  tileVariation: 3
+  isInteractable: 0

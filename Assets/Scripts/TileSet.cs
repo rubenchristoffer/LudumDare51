@@ -52,6 +52,8 @@ public class TileSet
     }
     public static TileSet CreateTileset(Vector2 centerCoordinates)
     {
+        bool isEscapeTile = (escapeTileCenterCoordinates - centerCoordinates).sqrMagnitude < 0.1f;
+
         TileSet tileset = new TileSet();
         Tile.TileVariation prefab;
         tileset.centerCoordinates = centerCoordinates;
@@ -74,7 +76,7 @@ public class TileSet
                 Tile tileBelow = GetTile(new Vector2(newX, newY - 1));
                 prefab = (tileBelow == null) ? Tile.TileVariation.bottom : Tile.TileVariation.full;
 
-                if ((escapeTileCenterCoordinates - centerCoordinates).sqrMagnitude < 0.1f) {
+                if (isEscapeTile) {
                     tile = TileSpawner.Instance.CreateEscapeTile(new Vector2(newX, newY), createdTiles);
                 } else {
                     tile = TileSpawner.Instance.CreateTile(prefab, new Vector2(newX, newY));
@@ -106,6 +108,11 @@ public class TileSet
             } 
         CreateSpookyBarrier(centerCoordinates, range, heightRange);
 
+        if (isEscapeTile) {
+            // Create portal
+            Tile tile = GameObject.Instantiate(TileSpawner.Instance.escapePortalPrefab, TileSpawner.GetWorldPosition(centerCoordinates), Quaternion.identity).GetComponent<Tile>();
+            tile.coordinates = TileSpawner.GetWorldPosition(centerCoordinates);
+        }
 
         return tileset;
 
