@@ -13,12 +13,28 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();     
+        animator = GetComponentInChildren<Animator>();
         playerEntity = GetComponent<Entity>();
+        GetComponent<Entity>().onDie.AddListener(() => animator.SetTrigger("Death"));
     }
 
     void Update()
     {
-        HandleInputs();
+
+        AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
+        if (animationState.IsName("Death"))
+        {
+            if (animationState.normalizedTime > 1)
+            {
+                //GOTO MAIN MENU
+            }
+        
+        }
+        else
+        {
+            HandleInputs();
+        }
+
     }
 
     void HandleInputs()
