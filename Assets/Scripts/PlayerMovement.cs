@@ -20,21 +20,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
-        AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
-        if (animationState.IsName("Death"))
-        {
-            if (animationState.normalizedTime > 1)
-            {
-                //GOTO MAIN MENU
-            }
-        
-        }
-        else
-        {
+        if (!playerEntity.isDead) {
             HandleInputs();
         }
-
     }
 
     void HandleInputs()
