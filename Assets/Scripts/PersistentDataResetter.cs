@@ -9,8 +9,7 @@ public class PersistentDataResetter : MonoBehaviour
 
     private static PersistentDataResetter Instance;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance != null)
         {
