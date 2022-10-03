@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && playerResources.cash >= 1)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             Vector3Int pos = Vector3Int.RoundToInt(transform.position);
             List<Tile> tiles = new List<Tile>();
@@ -27,7 +27,7 @@ public class PlayerInteraction : MonoBehaviour
                     Tile tile = TileSet.GetTile(new Vector3(pos.x + x, pos.y + y));
 
                     if (tile != null) {
-                        if (tile.Interact()) {
+                        if (playerResources.cash >= 1 && tile.Interact()) {
                             playerResources.RemoveCash(1);
                         }
                     }
